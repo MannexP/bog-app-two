@@ -10,8 +10,4 @@ router.get('/api/creatures/:creaturesId', creaturesController.show)
 router.patch('/api/creatures/:creaturesId', creaturesController.update)
 router.delete('/api/creatures/:creaturesId', creaturesController.delete)
 
-
-
-
-
 module.exports = router

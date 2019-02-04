@@ -3,6 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const logger = require('morgan')
 const app = express()
+const routes = require('./routes/index')
 
 mongoose.connect(process.env.MONGODB_URI)
 
@@ -18,6 +19,8 @@ db.on('open', () => {
 app.use(logger('dev'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use('/', routes)
 
 app.get('/', (req, res) => {
   res.send("Hello World")
